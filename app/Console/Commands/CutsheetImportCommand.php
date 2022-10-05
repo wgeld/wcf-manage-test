@@ -77,7 +77,7 @@ class CutsheetImportCommand extends Command
                      var_dump($importClass);
 
 
-                     ($importClass)->withOutput($this->output)->import($file);
+                    // ($importClass)->withOutput($this->output)->import($file);
 
 
                     $this->output->success('Imported Cutsheet: ' . $fileName);
@@ -97,16 +97,16 @@ class CutsheetImportCommand extends Command
 //                var_dump($conn);
 //
 //                if( $conn ) {
-//                    echo "Connection established.<br />";
+//                    echo "Connection established.\n";
 //                }else{
-//                    echo "Connection could not be established.<br />";
+//                    echo "Connection could not be established.\n";
 //                    die( print_r( sqlsrv_errors(), true));
 //                }
 //////////***** TESTING DB CONN ******** /////////////////////
 
-                    DB::connection('sqlsrv')->statement('exec uspFiber_Cutsheet_Imports_Update_LocationID_By_OrgDistributionPanelFSA ?,?,?',[$fileNameData['organization'],$fileNameData['fsa'],$fileNameData['distributionPanel']]);
+                    //DB::connection('sqlsrv')->statement('exec uspFiber_Cutsheet_Imports_Update_LocationID_By_OrgDistributionPanelFSA ?,?,?',[$fileNameData['organization'],$fileNameData['fsa'],$fileNameData['distributionPanel']]);
 //
-                    DB::flushQueryLog();
+                    //DB::flushQueryLog();
 
 
                     $this->output->success('Stored Procedure Completed: ' . $fileName);

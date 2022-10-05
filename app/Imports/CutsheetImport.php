@@ -116,7 +116,10 @@ class CutsheetImport implements ToModel, WithHeadingRow, WithColumnLimit, WithPr
                 'mstPort' => $row['mstport'],
                 'poleNumber' => $row['polenumber'],
                 'poleAddress' => $row['pole_pedaddress'],
-                //'locationID' => $row['locationid'],
+                /***************************************************/
+                //** UNCOMMENT locationID for WCF - WESTFIELD ONLY */
+//                 'locationID' => $row['locationid'],
+                //**************************************************/
                 'address' => $row['address'],
                 'streetNumber' => $parsedAddress['streetNumber'] ?? null,
                 'streetUnit' => $parsedAddress['streetUnit'] ?? null,
@@ -154,6 +157,7 @@ class CutsheetImport implements ToModel, WithHeadingRow, WithColumnLimit, WithPr
 
         } else {
             echo("empty row -> id");
+            return null;
         }
     }
 
