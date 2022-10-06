@@ -67,17 +67,17 @@ class CutsheetImportCommand extends Command
 
                      $this->output->title('Starting: ' . $fileName);
 
-                     echo("File is now open!:\n");
+                     echo("File is now open!:\n\n");
 
                      $importClass = (new CutsheetImport())->fromFile($fileNameData);
 
-                     echo("Sucessfully created Cutsheet Import Class Object\n");
+                     echo("Sucessfully created Cutsheet Import Class Object\n\n");
 
                      echo("\n\n***Inside CutsheetImportCommand.php***\n\n");
-                     var_dump($importClass);
+                     // var_dump($importClass);
 
 
-                    // ($importClass)->withOutput($this->output)->import($file);
+                    ($importClass)->withOutput($this->output)->import($file);
 
 
                     $this->output->success('Imported Cutsheet: ' . $fileName);
@@ -104,10 +104,11 @@ class CutsheetImportCommand extends Command
 //                }
 //////////***** TESTING DB CONN ******** /////////////////////
 
+                /// *** EXECUTE SP *** ///
                     //DB::connection('sqlsrv')->statement('exec uspFiber_Cutsheet_Imports_Update_LocationID_By_OrgDistributionPanelFSA ?,?,?',[$fileNameData['organization'],$fileNameData['fsa'],$fileNameData['distributionPanel']]);
 //
                     //DB::flushQueryLog();
-
+                /// *** EXECUTE SP *** ///
 
                     $this->output->success('Stored Procedure Completed: ' . $fileName);
 //
@@ -116,7 +117,7 @@ class CutsheetImportCommand extends Command
             }
         }
 
-        echo("Should be finished here!\n");
+        echo("Should be finished here!\n\n");
 
         return Command::SUCCESS;
     }
