@@ -44,7 +44,7 @@ class CutsheetImport implements ToModel, WithHeadingRow, WithColumnLimit, WithPr
         $this->fdhType = $fileNameData['fdhType'];
         $this->distributionPanel = $fileNameData['distributionPanel'];
 
-
+        //var_dump($this);
 
         return $this;
     }
@@ -59,14 +59,19 @@ class CutsheetImport implements ToModel, WithHeadingRow, WithColumnLimit, WithPr
     {
         return ['organization','fsa','fdhType','distributionPanel','fdhPort'];
     }
+
+    // this method gets called from CutSheetImportCommand->import -> withUpserts //
     public function model(array $row)
     {
 
+        var_dump($row);
 
         if (!empty($row['id'])) {
 
 
             $cutsheetImportHelpers = new CutsheetImportHelpers;
+
+            // Now we have create a new CutSheetImportHelpers object which we can use methods from to parse addresses
 
             $parsedAddress = $cutsheetImportHelpers->getAddress($row['address']);
 

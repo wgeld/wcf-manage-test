@@ -60,7 +60,7 @@ class CutsheetImportCommand extends Command
                     $fileName = Str::of($file)->after('/')->before('.xlsx');
 //
 
-////
+////                /// Instantiate new CutSheetHelpers Objects which calls the getFileNameData method -> to return fileNameData
                     $fileNameData = (new \App\Helpers\CutsheetImportHelpers)->getFileNameData($fileName);
 
 
@@ -69,15 +69,38 @@ class CutsheetImportCommand extends Command
 
                      echo("File is now open!:\n\n");
 
+                     // Create new CutsheetImport class and call fromFile method (not the actual constructor) //
+                     //****************************************************************************************//
+                     // EXAMPLE OF TRAIT VERSUS INTERFACE  An interface is like a promise that states, “this object can do this action,” while a trait is the capacity to accomplish the thing. //
+//                   interface Person
+//                   {
+//                     public function greet();
+//                     public function eat($food);
+//                   }
+//                   Trait EatingTrait
+//                   {
+//                     public function eat($food)
+//                     {
+//                        $this->putInMouth($food);
+//                     }
+//                     private function putInMouth($food)
+//                     {
+////                      digest delicious food
+//                     }
+//                    }
+
+                     /// End Example ///
+                     ///
+                     ///
                      $importClass = (new CutsheetImport())->fromFile($fileNameData);
 
-                     echo("Sucessfully created Cutsheet Import Class Object\n\n");
-
-                     echo("\n\n***Inside CutsheetImportCommand.php***\n\n");
-                     // var_dump($importClass);
+                     echo("Sucessfully created a Cutsheet Import Class Object\n\n");
 
 
-                    ($importClass)->withOutput($this->output)->import($file);
+                     var_dump($importClass);
+
+
+                     ($importClass)->withOutput($this->output)->import($file);
 
 
                     $this->output->success('Imported Cutsheet: ' . $fileName);

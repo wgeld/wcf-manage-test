@@ -167,6 +167,8 @@ class CutsheetImportHelpers
 
         $addressSplit = explode(' ', $address);
 
+        //echo("inside of getAddress()\n");
+
         if (Str::of(Arr::last($addressSplit))->startsWith($this->getValidStreetTypeListAll())) {
 
             $completeStreetNumber = $this->getCompleteStreetNumber($address);
@@ -620,9 +622,10 @@ class CutsheetImportHelpers
             'fileName' => (string)$fileName
         ];
 
-        //var_dump($fileNameDataObject);
+        var_dump($fileNameDataObject);
 
         //return (string)Str::of($poleInformationCell)->after(' ')->trim();
+
 
         return $fileNameDataObject;
 
