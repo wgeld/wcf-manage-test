@@ -97,10 +97,10 @@ class CutsheetImportCommand extends Command
                      echo("Sucessfully created a Cutsheet Import Class Object\n\n");
 
 
-                     var_dump($importClass);
+                    // var_dump($importClass);
 
 
-                     ($importClass)->withOutput($this->output)->import($file);
+                    ($importClass)->withOutput($this->output)->import($file);
 
 
                     $this->output->success('Imported Cutsheet: ' . $fileName);
