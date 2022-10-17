@@ -176,7 +176,6 @@ class CutsheetImportHelpers
             $streetUnit = $this->getStreetUnit($completeStreetNumber);
             $streetType = $this->getStreetType($address);
             $streetName = $this->getStreetName($address, $streetNumber,$streetUnit, $streetType);
-
             $streetNotes = $this->getStreetNotes($address);
             $commercial = $this->getAddressIsCommercial($address);
             $residential = $this->getAddressIsResidential($address);
