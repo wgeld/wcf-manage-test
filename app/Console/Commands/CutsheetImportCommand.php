@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
+DB::listen(function($query) {
+    // enable query logging, query binding for values
+    logger($query->sql, $query->bindings);
+});
+
+
 class CutsheetImportCommand extends Command
 {
     /**
@@ -15,6 +21,8 @@ class CutsheetImportCommand extends Command
      *
      * @var string
      */
+
+
 
     // command to import cutsheets
 

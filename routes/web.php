@@ -1,4 +1,4 @@
-<?php
+php <?php
 
 use App\Http\Controllers\AMSSoapController;
 use Illuminate\Support\Facades\Route;
